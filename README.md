@@ -1,3 +1,4 @@
+
 # LAN Bridge
 [English Document](./README.en.md)
 
@@ -28,3 +29,25 @@ source .venv/bin/activate
 pip install -e .
 chmod +x packaging/install-linux.sh
 ./packaging/install-linux.sh
+```
+> 安装权限规则后**注销并重登Ubuntu**，在应用菜单打开LAN Bridge，界面自动生成配对令牌（等同于设备密码，仅内网信任设备使用）
+> 脚本自动安装依赖：`wl-clipboard`(Wayland剪贴板)、`xclip`(X11剪贴板)
+
+## 2. Windows 11 安装部署（PowerShell）
+```powershell
+cd lanbridge
+Set-ExecutionPolicy -Scope Process Bypass
+.\packaging\install-windows.ps1
+```
+安装完成双击桌面快捷方式，填写Ubuntu设备IP+配对令牌即可连接；
+支持UDP广播自动发现局域网Ubuntu设备，防火墙拦截时可手动填写IP。
+
+## 防火墙端口（仅家庭/专用局域网放行，禁止公网开放）
+- TCP `45831`：加密键鼠输入、剪贴板、文件传输通道
+- UDP `45832`：局域网设备自动发现广播
+
+## 当前功能限制
+- Windows主控仅支持被控设备放置在主屏幕右侧单向跨屏
+- Ubuntu Wayland主控会独占物理键鼠，程序退出/断线自动释放硬件
+- Ubuntu接收端依赖桌面会话，无法以无桌面系统服务后台运行
+- GNOME Wayland虚拟指针使用相对位移，切入时自动对齐屏幕左边缘
