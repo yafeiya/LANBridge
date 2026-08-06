@@ -14,6 +14,7 @@ LAN Bridge is a local area network tool for Windows 11 and Ubuntu 24.04 LTS, whi
 - Ubuntu injects input events through `/dev/uinput`, compatible with both X11 and Wayland.
 
 ## Graphical User Interface
+![LAN Bridge UI Screenshot](./assets/ui.png)
 Command-line operations are no longer required for daily use:
 - The Windows installation script creates a `LAN Bridge` shortcut on the desktop.
 - The Ubuntu installation script adds a `LAN Bridge` entry to the application menu.

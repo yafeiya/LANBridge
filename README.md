@@ -12,12 +12,17 @@ LAN Bridge 是面向 Windows 11 + Ubuntu 24.04 LTS 的局域网工具，实现�
 - 网络传输安全：预共享令牌身份校验 + ChaCha20-Poly1305 加密TCP通道
 - Ubuntu 使用 `/dev/uinput` 注入输入事件，完美兼容 X11 / Wayland
 
-## 图形界面（0.3.0+ 无需命令行）
-- Windows：自动生成桌面快捷方式，支持鼠标速度自定义、自动扫描局域网设备、保存配对令牌、开机自启
-- Ubuntu：应用菜单生成启动入口，预装Noto CJK中文字体，原生中文界面
-- 界面实时展示本机局域网IP，一键复制配对令牌
-- Ubuntu Wayland主控：`Ctrl+Alt+F12` 切换受控设备，独占物理键鼠，退出自动释放设备
-- 底层保留命令行工具，用于故障排查
+## 图形界面
+![LAN Bridge UI Screenshot](./assets/ui.png)
+不需要日常使用命令行：
+- Windows 安装脚本会在桌面创建 `LAN Bridge` 快捷方式。
+- Ubuntu 安装脚本会在应用菜单创建 `LAN Bridge` 入口。
+- 两端界面均显示当前设备 IP。
+- Windows 界面可切换主控/接收角色、自动发现设备、保存配对令牌、调整鼠标速度并启停连接。
+- Ubuntu 接收端使用 `uinput`；Ubuntu Wayland 主控端使用 `evdev` 独占物理设备，并通过 `Ctrl+Alt+F12` 安全切换目标。
+- 可选择登录后自动启动，并按上次角色、上次 IP 自动连接。
+- Ubuntu 安装脚本会安装 Noto CJK 字体，界面自动选择可显示中文的字体。
+- 底层命令行仍然保留，便于故障诊断
 
 ## 1. Ubuntu 24.04 安装部署
 ```bash
