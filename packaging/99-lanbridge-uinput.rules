@@ -1,0 +1,2 @@
+KERNEL=="uinput", GROUP="lanbridge", MODE="0660", OPTIONS+="static_node=uinput"
+

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=LAN Bridge
+Comment=局域网键盘、鼠标与剪贴板共享
+Exec=@GUI_EXEC@
+Path=@PROJECT_ROOT@
+Icon=input-keyboard
+Terminal=false
+Categories=Utility;Network;
+StartupNotify=true

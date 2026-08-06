@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lanbridge"
+version = "0.3.0"
+description = "Encrypted LAN keyboard, mouse and clipboard sharing for Windows and Linux"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "cryptography>=41",
+  "pynput>=1.7.7; platform_system == 'Windows'",
+  "evdev>=1.7; platform_system == 'Linux'",
+]
+
+[project.scripts]
+lanbridge = "lanbridge.cli:main"
+lanbridge-gui = "lanbridge.gui:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
